@@ -219,8 +219,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/89dc08fda619252b04178b6667769d2d/authenticator-4.0.0.tar.xz",
-                    "sha256": "37157548ef795a0fd73300574f9a50fdd338baf01c46d68b839631299b0a7956"
+                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/de09cb4ad795bffee016af79b0a2e6a2/authenticator-4.0.1.tar.xz",
+                    "sha256": "7bb677219b57b9919529bb06377322346a903c5cce90e72846019ace6119362d"
                 }
             ]
         }
