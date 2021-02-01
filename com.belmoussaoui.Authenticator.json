@@ -37,9 +37,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gtk/4.0/gtk-4.0.2.tar.xz",
-                    "sha256": "626707ac6751426ed76fed49c5b2d052dfee45757ce3827088ba87ca7f1dbc84"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gtk.git",
+                    "commit": "eeb3dd35119cb5219f95d875fe4c3f6054ec32f8"
                 }
             ],
             "modules": [
