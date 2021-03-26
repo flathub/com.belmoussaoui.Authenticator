@@ -42,7 +42,7 @@
                     "type": "git",
                     "url": "https://gitlab.gnome.org/exalm/libadwaita.git",
                     "branch": "main",
-                    "commit": "0a3ec432ce1e635841f56bb23f5e97abdc3c1102"
+                    "commit": "8f434971a180108790a93cecef853d66a61cbfe1"
                 }
             ]
         },
