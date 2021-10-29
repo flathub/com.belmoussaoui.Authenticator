@@ -89,9 +89,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "branch" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "commit": "102232fa62ccec0f86ce6ff5bd65fbb3ac83a77c"
+                    "tag" : "1.18",
+                    "url" : "https://gitlab.freedesktop.org/gstreamer/gstreamer.git"
                 }
             ]
         },
@@ -108,9 +107,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "branch" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git",
-                    "commit": "64fa797ce57237ec4f527e1746a2067cfa05937d"
+                    "tag" : "1.18",
+                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git"
                 }
             ]
         },
@@ -128,9 +126,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "branch" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git",
-                    "commit": "b80518152799385fc31ac8fce086541ff1b97812"
+                    "tag" : "1.18",
+                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git"
                 },
                 {
                     "type" : "patch",
@@ -153,8 +150,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git",
-                    "branch" : "1.18",
-                    "commit": "c0c804384ca29fecd8329de0745693ed11784b81"
+                    "tag" : "1.18"
                 }
             ]
         },
