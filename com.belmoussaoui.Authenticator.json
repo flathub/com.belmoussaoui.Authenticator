@@ -64,7 +64,7 @@
             "sources": [{
                     "type": "git",
                     "url": "git://git.linuxtv.org/zbar.git",
-                    "tag": "0.23"
+                    "tag": "0.23.1"
                 },
                 {
                     "type": "script",
@@ -72,6 +72,10 @@
                     "commands": [
                         "autoreconf -vfi -W none"
                     ]
+                },
+                {
+                    "type": "patch",
+                    "path": "zbar-autoconf-2.70.patch"
                 }
             ]
         },
