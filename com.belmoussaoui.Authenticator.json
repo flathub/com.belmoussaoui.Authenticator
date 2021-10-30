@@ -1,7 +1,7 @@
 {
     "app-id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "40",
+    "runtime-version": "41",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command": "authenticator",
@@ -41,7 +41,6 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/exalm/libadwaita.git",
-                    "branch": "main",
                     "commit": "8f434971a180108790a93cecef853d66a61cbfe1"
                 }
             ]
@@ -64,7 +63,7 @@
             "sources": [{
                     "type": "git",
                     "url": "git://git.linuxtv.org/zbar.git",
-                    "tag": "0.23"
+                    "tag": "0.23.1"
                 },
                 {
                     "type": "script",
@@ -72,6 +71,10 @@
                     "commands": [
                         "autoreconf -vfi -W none"
                     ]
+                },
+                {
+                    "type": "patch",
+                    "path": "zbar-autoconf-2.70.patch"
                 }
             ]
         },
@@ -86,9 +89,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "branch" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "commit": "102232fa62ccec0f86ce6ff5bd65fbb3ac83a77c"
+                    "tag" : "1.18",
+                    "url" : "https://gitlab.freedesktop.org/gstreamer/gstreamer.git"
                 }
             ]
         },
@@ -105,9 +107,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "branch" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git",
-                    "commit": "64fa797ce57237ec4f527e1746a2067cfa05937d"
+                    "tag" : "1.18",
+                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git"
                 }
             ]
         },
@@ -125,9 +126,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "branch" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git",
-                    "commit": "b80518152799385fc31ac8fce086541ff1b97812"
+                    "tag" : "1.18",
+                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git"
                 },
                 {
                     "type" : "patch",
@@ -150,8 +150,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git",
-                    "branch" : "1.18",
-                    "commit": "c0c804384ca29fecd8329de0745693ed11784b81"
+                    "tag" : "1.18"
                 }
             ]
         },
