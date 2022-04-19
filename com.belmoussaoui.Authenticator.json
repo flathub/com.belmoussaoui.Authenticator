@@ -1,50 +1,32 @@
 {
     "app-id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "41",
+    "runtime-version": "42",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable",
+        "org.freedesktop.Sdk.Extension.llvm12"
+    ],
     "command": "authenticator",
     "finish-args": [
-        "--socket=pulseaudio",
-        "--device=all",
+        "--device=dri",
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
         "--talk-name=org.freedesktop.secrets",
-        "--env=RUST_LOG=authenticator=debug",
+        "--env=RUST_LOG=authenticator=debug,ashpd=debug",
         "--env=G_MESSAGES_DEBUG=none",
-        "--env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0"
+        "--env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0",
+        "--own-name=com.belmoussaoui.Authenticator.SearchProvider"
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "env": {
-            "CARGO_HOME": "/run/build/authenticator/cargo",
-            "RUST_BACKTRACE": "1"
-        }
+        "prepend-path": "/usr/lib/sdk/llvm12/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm12/lib"
     },
     "modules": [
         {
-            "name": "libadwaita",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dintrospection=disabled",
-                "-Dgtk_doc=false",
-                "-Dtests=false",
-                "-Dexamples=false",
-                "-Dvapi=false",
-                "-Dglade_catalog=disabled"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/exalm/libadwaita.git",
-                    "commit": "8f434971a180108790a93cecef853d66a61cbfe1"
-                }
-            ]
-        },
-	{
             "name": "zbar",
             "config-opts": [
                 "--without-qt",
@@ -59,10 +41,11 @@
                 "--with-introspection=no",
                 "--enable-codes=qrcode"
             ],
-            "sources": [{
+            "sources": [
+                {
                     "type": "git",
                     "url": "git://git.linuxtv.org/zbar.git",
-                    "tag": "0.23.1"
+                    "commit": "468f6bda627d683b3f40dbaf242c158409666f7e"
                 },
                 {
                     "type": "script",
@@ -70,86 +53,25 @@
                     "commands": [
                         "autoreconf -vfi -W none"
                     ]
-                },
-                {
-                    "type": "patch",
-                    "path": "zbar-autoconf-2.70.patch"
                 }
             ]
         },
         {
-            "name" : "gstreamer",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dexamples=disabled",
-                "-Dtests=disabled",
-                "-Ddoc=disabled"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "tag" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gstreamer.git"
-                }
-            ]
-        },
-        {
-            "name" : "gst-plugins-base",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Ddoc=disabled",
-                "-Dexamples=disabled",
-                "-Dtests=disabled",
-                "-Dorc=enabled",
-                "--wrap-mode=nodownload"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "tag" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git"
-                }
-            ]
-        },
-        {
-            "name" : "gst-plugins-good",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dgtk3=disabled",
-                "-Dgtk4=enabled",
-                "-Dgtk4-experiments=true",
-                "-Ddoc=disabled",
-                "-Dexamples=disabled",
-                "-Dtests=disabled"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "tag" : "1.18",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git"
-                },
-                {
-                    "type" : "patch",
-                    "path" : "gst_gtk4sink.patch"
-                }
-            ]
-	    },
-        {
-            "name" : "gst-bad-plugins",
+            "name": "gst-bad-plugins",
             "buildsystem": "meson",
-            "config-opts" : [
-            	"-Dzbar=enabled",
-            	"-Drsvg=disabled",
-            	"-Dvulkan=disabled",
-            	"-Dexamples=disabled",
-            	"-Dtests=disabled",
-            	"-Dintrospection=disabled"
+            "config-opts": [
+                "-Dzbar=enabled",
+                "-Drsvg=disabled",
+                "-Dvulkan=disabled",
+                "-Dexamples=disabled",
+                "-Dtests=disabled",
+                "-Dintrospection=disabled"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git",
-                    "tag" : "1.18"
+                    "type": "git",
+                    "url": "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git",
+                    "tag": "1.18.6"
                 }
             ]
         },
@@ -159,8 +81,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/f923a9a25db90ced1aac2ab0b39dcbf2/authenticator-4.0.3.tar.xz",
-                    "sha256": "3435224dd3942de7e6b6007e3111c01af6008dd3e3a75f54ef4b70881d890d71"
+                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/6238c87d5fce0da1164db0b106d540d5/authenticator-4.1.0.tar.xz",
+                    "sha256": "337a6a51ad373149e867db01e143b2c710fc25b96d8cc7686cefbd657a888689"
                 }
             ]
         }
