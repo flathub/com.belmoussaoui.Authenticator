@@ -75,6 +75,23 @@
             ]
         },
         {
+            "name": "gtk",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-examples=false",
+                "-Dbuild-tests=false",
+                "-Ddemos=false",
+                "-Dintrospection=disabled"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gtk.git"
+                    "commit": "b3f04413b486bd3eb7fbb13658b60aa4c517cd1c"
+                }
+            ]
+        },
+        {
             "name": "authenticator",
             "buildsystem": "meson",
             "sources": [
