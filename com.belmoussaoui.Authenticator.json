@@ -86,7 +86,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gtk.git"
+                    "url": "https://gitlab.gnome.org/GNOME/gtk.git",
                     "commit": "b3f04413b486bd3eb7fbb13658b60aa4c517cd1c"
                 }
             ]
