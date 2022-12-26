@@ -1,11 +1,11 @@
 {
-    "app-id": "com.belmoussaoui.Authenticator",
+    "id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
+    "runtime-version": "43",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
-        "org.freedesktop.Sdk.Extension.llvm12"
+        "org.freedesktop.Sdk.Extension.llvm14"
     ],
     "command": "authenticator",
     "finish-args": [
@@ -17,12 +17,15 @@
         "--talk-name=org.freedesktop.secrets",
         "--env=RUST_LOG=authenticator=debug,ashpd=debug",
         "--env=G_MESSAGES_DEBUG=none",
-        "--own-name=com.belmoussaoui.Authenticator.SearchProvider"
+        "--own-name=com.belmoussaoui.Authenticator.SearchProvider",
+        /* Browse gvfs */
+        "--talk-name=org.gtk.vfs.*",
+        "--filesystem=xdg-run/gvfs", "--filesystem=xdg-run/gvfsd"
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "prepend-path": "/usr/lib/sdk/llvm12/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm12/lib"
+        "prepend-path": "/usr/lib/sdk/llvm14/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm14/lib"
     },
     "modules": [
         {
