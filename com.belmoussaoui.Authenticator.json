@@ -1,51 +1,59 @@
 {
     "id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
+    "runtime-version": "44",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
-        "org.freedesktop.Sdk.Extension.llvm14"
+        "org.freedesktop.Sdk.Extension.llvm15"
     ],
     "command": "authenticator",
     "finish-args": [
-        "--device=dri",
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
+        "--device=dri",
         "--talk-name=org.freedesktop.secrets",
-        "--env=RUST_LOG=authenticator=debug,ashpd=debug",
+        "--env=RUST_LOG=authenticator=debug,ashpd=debug,oo7=debug",
         "--env=G_MESSAGES_DEBUG=none",
         "--talk-name=org.gtk.vfs.*",
-        "--filesystem=xdg-run/gvfs", "--filesystem=xdg-run/gvfsd"
+        "--filesystem=xdg-run/gvfs",
+        "--filesystem=xdg-run/gvfsd"
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "prepend-path": "/usr/lib/sdk/llvm14/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm14/lib"
+        "prepend-path": "/usr/lib/sdk/llvm15/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm15/lib"
     },
+                "--without-imagemagick",
     "modules": [
         {
             "name": "zbar",
             "config-opts": [
-                "--without-qt",
-                "--without-gtk",
-                "--without-xv",
-                "--without-imagemagick",
+                "--disable-doc",
                 "--disable-video",
+                "--enable-codes=qrcode",
+                "--without-dbus",
+                "--without-directshow",
+                "--without-gir",
+                "--without-graphicsmagick",
+                "--without-gtk",
+                "--without-imagemagick",
+                "--without-jpeg",
                 "--without-java",
+                "--without-npapi",
                 "--without-python",
-                "--with-dbus=no",
-                "--enable-doc=no",
-                "--with-introspection=no",
-                "--enable-codes=qrcode"
+                "--without-qt",
+                "--without-qt5",
+                "--without-xshm",
+                "--without-xv"
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://git.linuxtv.org/zbar.git",
-                    "commit": "50726104adc930c67642da65249dda62e2981591"
+                    "type": "archive",
+                    "url": "https://linuxtv.org/downloads/zbar/zbar-0.23.1.tar.gz",
+                    "sha256": "c72b19eb63f48781ae5ff1830236f4e753f4bd6418cd781aea1cd85d625b119e"
                 },
                 {
                     "type": "script",
@@ -59,6 +67,7 @@
         {
             "name": "gst-bad-plugins",
             "buildsystem": "meson",
+            "subdir": "subprojects/gst-plugins-bad",
             "config-opts": [
                 "-Dzbar=enabled",
                 "-Drsvg=disabled",
@@ -70,55 +79,10 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git",
-                    "tag": "1.18.6"
-                }
-            ]
-        },
-          {
-            "name" : "libsass",
-            "buildsystem" : "meson",
-            "builddir" : true,
-            "config-opts" : [
-                "--libdir=/app/lib"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/lazka/libsass.git",
-                    "commit" : "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
-                }
-            ]
-        },
-        {
-            "name" : "sassc",
-            "buildsystem" : "meson",
-            "builddir" : true,
-            "config-opts" : [
-                "--libdir=/app/lib"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/lazka/sassc.git",
-                    "commit" : "82803377c33247265d779af034eceb5949e78354"
-                }
-            ]
-        },
-        {
-            "name": "gtk",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dbuild-examples=false",
-                "-Dbuild-tests=false",
-                "-Ddemos=false",
-                "-Dintrospection=disabled"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gtk.git",
-                    "commit": "1cd44ec7b7388f3e22f7fdbe9d5c2f2bdb3d215b"
+                    "disable-submodules": true,
+                    "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
+                    "tag": "1.20.6",
+                    "commit": "b7d3037cca2fe72c5b7daab5e0617e61ae013dcc"
                 }
             ]
         },
@@ -128,8 +92,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/a3932d77c82d884091535a7034e37f7b/authenticator-4.2.0.tar.xz",
-                    "sha256": "10ca7b7f2b538b70d5f5519d9e7d436b79cebcfe6bb6554f7080748f3453a3ff"
+                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/d878283a69d1f7ccad661b5624fb6e54/authenticator-4.3.0.tar.xz",
+                    "sha256": "d390fcd79be5a0fde3466421710dc9706f54db475b1d0413540a492dd82f02c1"
                 }
             ]
         }
