@@ -26,7 +26,6 @@
         "prepend-path": "/usr/lib/sdk/llvm15/bin",
         "prepend-ld-library-path": "/usr/lib/sdk/llvm15/lib"
     },
-                "--without-imagemagick",
     "modules": [
         {
             "name": "zbar",
