@@ -1,0 +1,13 @@
+diff --git a/src/widgets/camera.rs b/src/widgets/camera.rs
+index 84e2c7d..2e6af80 100644
+--- a/src/widgets/camera.rs
++++ b/src/widgets/camera.rs
+@@ -226,7 +226,7 @@ impl Camera {
+                 .to_string();
+ 
+             if let Some(location) = stream.properties().get(CAMERA_LOCATION) {
+-                if location == "front" {
++                if location == "back" {
+                     selected_stream = id;
+                 }
+             }
