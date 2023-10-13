@@ -1,11 +1,11 @@
 {
     "id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "44",
+    "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
-        "org.freedesktop.Sdk.Extension.llvm15"
+        "org.freedesktop.Sdk.Extension.llvm16"
     ],
     "command": "authenticator",
     "finish-args": [
@@ -23,8 +23,8 @@
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "prepend-path": "/usr/lib/sdk/llvm15/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm15/lib"
+        "prepend-path": "/usr/lib/sdk/llvm16/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm16/lib"
     },
     "modules": [
         {
@@ -80,8 +80,7 @@
                     "type": "git",
                     "disable-submodules": true,
                     "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "tag": "1.20.6",
-                    "commit": "b7d3037cca2fe72c5b7daab5e0617e61ae013dcc"
+                    "tag": "1.22.6"
                 }
             ]
         },
@@ -91,12 +90,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/0297b917c5691618f9cfd6b1abac0b80/authenticator-4.3.1.tar.xz",
-                    "sha256": "4c7d98265f0ccf25c83a438083cfb481f9c62a7c62fbdbbb4c6a6882936080fd"
-                },
-                {
-                    "type": "patch",
-                    "path": "camera-back.patch"
+                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/3d2a5c4ed6f51633a2cc5abf5d99f193/authenticator-4.4.0.tar.xz",
+                    "sha256": "3b3b58dff42a3b457d3f467eca38a601e82d6b320ba7f8ab5ebb7e60ec05a1c8"
                 }
             ]
         }
