@@ -77,9 +77,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "tag": "1.24"
+                    "type": "archive",
+                    "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.10/gstreamer-1.22.10.tar.gz",
+                    "sha256": "bba3a87f82d509802d96a5caf2c47982234063928870623b222f60702f1f50eb"
                 }
             ]
         },
