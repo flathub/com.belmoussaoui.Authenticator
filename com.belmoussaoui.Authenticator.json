@@ -109,7 +109,6 @@
                         {
                             "type" : "git",
                             "url" : "https://github.com/lazka/libsass.git",
-                            "branch" : "meson",
                             "commit": "aac79dccd3c8f7e8f22125f87a119f3b1ee9d487"
                         }
                     ]
@@ -124,7 +123,6 @@
                         {
                             "type" : "git",
                             "url" : "https://github.com/lazka/sassc.git",
-                            "branch" : "meson",
                             "commit": "a1950c2d95ea4c051feb90bb1f43559fbb54bf36"
                         }
                     ]
