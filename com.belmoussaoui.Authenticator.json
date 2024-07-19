@@ -134,7 +134,8 @@
                         "-Dbuild-examples=false",
                         "-Dbuild-testsuite=false",
                         "-Dbuild-demos=false",
-                        "-Dintrospection=disabled"
+                        "-Dintrospection=disabled",
+                        "-Dvulkan=disabled"
                     ],
                     "sources" : [
                         {
