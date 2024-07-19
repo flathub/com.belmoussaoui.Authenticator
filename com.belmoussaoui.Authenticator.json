@@ -1,11 +1,11 @@
 {
     "id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "45",
+    "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
-        "org.freedesktop.Sdk.Extension.llvm16"
+        "org.freedesktop.Sdk.Extension.llvm18"
     ],
     "command": "authenticator",
     "finish-args": [
@@ -23,8 +23,8 @@
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "prepend-path": "/usr/lib/sdk/llvm16/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm16/lib"
+        "prepend-path": "/usr/lib/sdk/llvm18/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm18/lib"
     },
     "modules": [
         {
@@ -80,18 +80,83 @@
                     "type": "git",
                     "disable-submodules": true,
                     "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "tag": "1.22.6"
+                    "tag": "1.24"
                 }
             ]
         },
+        {
+            "name" : "libadwaita",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dexamples=false",
+                "-Dtests=false"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
+                    "commit" : "44543013d76c37da6f8bbf558ea2d6b57f0bd692"
+                }
+            ],
+            "modules" : [
+                {
+                    "name" : "libsass",
+                    "buildsystem" : "meson",
+                    "cleanup" : [
+                        "*"
+                    ],
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://github.com/lazka/libsass.git",
+                            "branch" : "meson",
+                            "commit": "aac79dccd3c8f7e8f22125f87a119f3b1ee9d487"
+                        }
+                    ]
+                },
+                {
+                    "name" : "sassc",
+                    "buildsystem" : "meson",
+                    "cleanup" : [
+                        "*"
+                    ],
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://github.com/lazka/sassc.git",
+                            "branch" : "meson",
+                            "commit": "a1950c2d95ea4c051feb90bb1f43559fbb54bf36"
+                        }
+                    ]
+                },
+                {
+                    "name": "gtk",
+                    "buildsystem": "meson",
+                    "config-opts": [
+                        "-Dbuild-tests=false",
+                        "-Dbuild-examples=false",
+                        "-Dbuild-testsuite=false",
+                        "-Dbuild-demos=false",
+                        "-Dintrospection=disabled"
+                    ],
+                    "sources" : [
+                        {
+                            "type": "git",
+                            "url": "https://gitlab.gnome.org/GNOME/gtk.git",
+                            "commit": "adb3baa7d287618efb225e528215f5d3599f740f"
+                        }
+                    ]
+                }
+            ]
+        },        
         {
             "name": "authenticator",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/World/Authenticator/uploads/3d2a5c4ed6f51633a2cc5abf5d99f193/authenticator-4.4.0.tar.xz",
-                    "sha256": "3b3b58dff42a3b457d3f467eca38a601e82d6b320ba7f8ab5ebb7e60ec05a1c8"
+                    "url": "https://gitlab.gnome.org/-/project/4706/uploads/a0363915c23922b3a1459aada67e57ac/authenticator-4.5.0.tar.xz",
+                    "sha256": "a18ee9a27c80bd805d8f5da4fcb2500bf2897f8d31ed51904519118780ebde4e"
                 }
             ]
         }
