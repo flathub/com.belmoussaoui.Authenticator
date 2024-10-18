@@ -70,7 +70,11 @@
                 "-Dgst-plugins-bad:zbar=enabled",
                 "-Dexamples=disabled",
                 "-Dtests=disabled",
-                "-Dintrospection=disabled"
+                "-Dintrospection=disabled",
+                "-Dlibav=disabled",
+                "-Ddevtools=disabled",
+                "-Dgst-examples=disabled",
+                "-Dpython=disabled"
             ],
             "sources": [
                 {
