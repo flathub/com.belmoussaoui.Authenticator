@@ -80,8 +80,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "commit": "b36d8de28cbbafdefb38a80ecdc8c5c0f5d0e7db",
-                    "branch": "1.24"
+                    "commit": "b36d8de28cbbafdefb38a80ecdc8c5c0f5d0e7db"
                 }
             ]
         },
