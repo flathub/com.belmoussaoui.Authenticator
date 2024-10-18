@@ -76,7 +76,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "commit": "3c66f10e218ec93a11e93f7c0bd209036c867a7a"
+                    "commit": "b36d8de28cbbafdefb38a80ecdc8c5c0f5d0e7db",
+                    "branch": "1.24"
                 }
             ]
         },
