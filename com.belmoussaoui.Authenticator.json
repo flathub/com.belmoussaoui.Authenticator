@@ -1,7 +1,7 @@
 {
     "id": "com.belmoussaoui.Authenticator",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "47",
+    "runtime-version": "48",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
@@ -28,70 +28,13 @@
     },
     "modules": [
         {
-            "name": "zbar",
-            "config-opts": [
-                "--disable-doc",
-                "--disable-video",
-                "--enable-codes=qrcode",
-                "--without-dbus",
-                "--without-directshow",
-                "--without-gir",
-                "--without-graphicsmagick",
-                "--without-gtk",
-                "--without-imagemagick",
-                "--without-jpeg",
-                "--without-java",
-                "--without-npapi",
-                "--without-python",
-                "--without-qt",
-                "--without-qt5",
-                "--without-xshm",
-                "--without-xv"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://linuxtv.org/downloads/zbar/zbar-0.23.1.tar.gz",
-                    "sha256": "c72b19eb63f48781ae5ff1830236f4e753f4bd6418cd781aea1cd85d625b119e"
-                },
-                {
-                    "type": "script",
-                    "dest-filename": "autogen.sh",
-                    "commands": [
-                        "autoreconf -vfi -W none"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "gstreamer",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dgst-plugins-bad:zbar=enabled",
-                "-Dexamples=disabled",
-                "-Dtests=disabled",
-                "-Dintrospection=disabled",
-                "-Dlibav=disabled",
-                "-Ddevtools=disabled",
-                "-Dgst-examples=disabled",
-                "-Dpython=disabled"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "commit": "b36d8de28cbbafdefb38a80ecdc8c5c0f5d0e7db"
-                }
-            ]
-        },
-        {
             "name": "authenticator",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/-/project/4706/uploads/c13bd8000ae483d9ccf1fecd4bbddc08/authenticator-4.5.0.tar.xz",
-                    "sha256": "6cc16db9383566a027592ed5289c8f85007005a6d5e17e4b864d9109ee43953b"
+                    "url": "https://gitlab.gnome.org/-/project/4706/uploads/dd9da5b246ecb12ebf041d95f8e99f67/authenticator-4.6.0.tar.xz",
+                    "sha256": "77967145e84d77c65c0dbdc84c19c0d722272cace67eb57484279bbea4e1c272"
                 }
             ]
         }
