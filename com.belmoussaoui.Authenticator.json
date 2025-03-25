@@ -33,8 +33,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.gnome.org/-/project/4706/uploads/dd9da5b246ecb12ebf041d95f8e99f67/authenticator-4.6.0.tar.xz",
-                    "sha256": "77967145e84d77c65c0dbdc84c19c0d722272cace67eb57484279bbea4e1c272"
+                    "url": "https://gitlab.gnome.org/-/project/4706/uploads/679ac005033cdd240acc1ebc08a5d5ed/authenticator-4.6.2.tar.xz",
+                    "sha256": "f33122b2f48db9b3f2a23fc873100cb2d0876028b86ac633e8f783b405c54306"
                 }
             ]
         }
