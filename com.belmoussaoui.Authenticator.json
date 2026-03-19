@@ -35,6 +35,10 @@
                     "type": "archive",
                     "url": "https://gitlab.gnome.org/-/project/4706/uploads/679ac005033cdd240acc1ebc08a5d5ed/authenticator-4.6.2.tar.xz",
                     "sha256": "f33122b2f48db9b3f2a23fc873100cb2d0876028b86ac633e8f783b405c54306"
+                },
+                {
+                    "type": "patch",
+                    "path": "fix-appdata.patch"
                 }
             ]
         }
